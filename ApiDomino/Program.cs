@@ -17,8 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSqlServer<DominoContext>(builder.Configuration.GetConnectionString("CadenaSql"));
 
 //dependencias del Servicio CadenasDomino
-//builder.Services.AddScoped<ICadenaDominoServices, CadenaDominoServices>();
-//builder.Services.AddScoped<Ficha>();
+builder.Services.AddScoped<ICadenaDominoServices, CadenaDominoServices>();
 
 var app = builder.Build();
 

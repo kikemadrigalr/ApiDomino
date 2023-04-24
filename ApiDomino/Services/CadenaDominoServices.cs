@@ -18,31 +18,30 @@ namespace ApiDomino.Services
             return _context.CadenaDominos.ToList();
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var cadenaActual = _context.CadenaDominos.Find(id);
+
+            if(cadenaActual != null)
+            {
+                _context.CadenaDominos.Remove(cadenaActual);
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public Task GetById(int id)
+        public CadenaDomino GetById(int id)
         {
-            throw new NotImplementedException();
+            var cadenaActual = _context.CadenaDominos.Find(id);
+            return cadenaActual;
         }
 
-        public Task Save(CadenaDomino nuevacadena)
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public interface ICadenaDominoServices
     {
         IEnumerable<CadenaDomino> GetAll();
 
-        Task GetById(int id);
-
-        Task Save(CadenaDomino nuevacadena);
-
-        //Task Update(Guid id, Tarea tarea);
+        CadenaDomino GetById(int id);
 
         Task Delete(int id);
     }

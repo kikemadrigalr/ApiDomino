@@ -18,7 +18,7 @@ namespace ApiDomino.Controllers
         }
 
         [HttpGet]
-        [Route("Lista")]
+        [Route("CadenaValida")]
         public IActionResult Get() 
         {
             try
@@ -30,6 +30,37 @@ namespace ApiDomino.Controllers
                 return BadRequest(ex.Message);
             }
             
+        }
+
+        [HttpGet]
+        [Route("CadenaValida/{id}")]
+        public IActionResult GetId(int id)
+        {
+            try
+            {
+                return Ok(cadenaDominoServices.GetById(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
+
+
+        [HttpDelete("CadenaValida/{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                cadenaDominoServices.Delete(id);
+                return Ok("La cadena Fue eliminada con Exito");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);  
+            }
         }
 
     }
