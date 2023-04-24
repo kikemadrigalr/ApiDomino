@@ -9,6 +9,11 @@
 
         public bool Jugada { get; set; }
 
+        public Ficha()
+        {
+            
+        }
+
         public Ficha(int pIzquierda, int pDerecha)
         {
             PuntosIzquierda = pIzquierda;
