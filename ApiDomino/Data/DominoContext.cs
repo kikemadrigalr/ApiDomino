@@ -17,6 +17,7 @@ public partial class DominoContext : DbContext
     }
 
     public virtual DbSet<CadenaDomino> CadenaDominos { get; set; }
+    public DbSet<Usuario> Usuario { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
 

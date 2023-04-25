@@ -4,6 +4,7 @@ using ApiDomino.Recursos;
 using ApiDomino.Controllers;
 using Microsoft.EntityFrameworkCore;
 using ApiDomino.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApiDomino.Controllers
 {
@@ -11,6 +12,7 @@ namespace ApiDomino.Controllers
     //solo tiene un unico endpoint ya que solo se hace insercion de fichas para crear las cadenas de dominoes validas.
     //la inserción a la BD se realiza luego de crear una cadena valida.
     [Route("/api/[controller]")]
+    [Authorize]
     public class FichaController : ControllerBase
     {
         //se inyecta el contexto de la base de datos como dependencia en el contructor del controlador

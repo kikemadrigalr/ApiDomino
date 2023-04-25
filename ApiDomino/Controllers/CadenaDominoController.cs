@@ -3,11 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using ApiDomino.Models;
 using ApiDomino.Data;
 using ApiDomino.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApiDomino.Controllers
 {
     [Route("/api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CadenaDominoController : ControllerBase
     {
         //Se inyecta el servicio para manejar las cadenas como dependencia en el constructor del controlador
