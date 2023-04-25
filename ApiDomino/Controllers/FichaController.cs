@@ -53,7 +53,7 @@ namespace ApiDomino.Controllers
 
                     _context.CadenaDominos.AddAsync(cadena);
                     _context.SaveChanges();
-                    return Ok("La cadena fue creada correctamente");
+                    return Ok(new { mensaje = "Se construyó la siguiente cadena válida", response = cadena.Cadena});
 
                 }
                 else
