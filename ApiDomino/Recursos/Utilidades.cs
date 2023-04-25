@@ -4,6 +4,8 @@ namespace ApiDomino.Recursos
 {
     public class Utilidades
     {
+        //metodo que se encarga de crear una cadena valida de fichas de domino
+        //en base a las fichas recibidas como json en el endpoint api/Ficha/Fichas
         public static bool BuildDominoChain(List<Ficha> fichas, List<Ficha> cadena)
         {
             int contadorFichas = 0;
@@ -18,6 +20,7 @@ namespace ApiDomino.Recursos
                     var pieza = fichas[i];
 
                     //Intentar ingresar al final de la lista
+                    //si el lado derecho de la ficha ya jugada coincide con alguno de los lados de la proxima ficha
                     if (cadena.Count == 0 || (cadena.Last().PuntosDerecha == pieza.PuntosIzquierda && pieza.Jugada == false))
                     {
                         pieza.Jugada = true;
@@ -33,6 +36,7 @@ namespace ApiDomino.Recursos
                     }
 
                     //Intentar Ingresar al inicio de la Lista
+                    //Si el lado izquierdo de la ficha ya jugada coincide con alguno de los lados de la proxima ficha
                     if (cadena.Count == 0 || (cadena.First().PuntosIzquierda == pieza.PuntosDerecha && pieza.Jugada == false))
                     {
                         pieza.Jugada = true;
@@ -58,7 +62,8 @@ namespace ApiDomino.Recursos
             //Verificar si ya se han jugado todas las fichas
             if (contadorFichas == fichas.Count)
             {
-                //verificar si la cadena resultante es correcta.
+                //verificar si la cadena resultante es válida.
+                //La cadena es válida si  los puntos de las mitades de aquellas fichas que no tengan vecino(fichas primera y última) concuerden uno con el otro
                 cadenaValida = (cadena.First().PuntosIzquierda == cadena.Last().PuntosDerecha) ? true : false;
             }
 

@@ -7,9 +7,13 @@ using ApiDomino.Data;
 
 namespace ApiDomino.Controllers
 {
+    //Controlador para manejar las peticiones de los tipos ficha
+    //solo tiene un unico endpoint ya que solo se hace insercion de fichas para crear las cadenas de dominoes validas.
+    //la inserción a la BD se realiza luego de crear una cadena valida.
     [Route("/api/[controller]")]
     public class FichaController : ControllerBase
     {
+        //se inyecta el contexto de la base de datos como dependencia en el contructor del controlador
         private readonly DominoContext _context;
 
         public FichaController(DominoContext context)
@@ -17,8 +21,9 @@ namespace ApiDomino.Controllers
             _context = context;
         }
 
+        //Enpoint para recibir el conjunto de fichas de dominos en formato Json
         [HttpPost]
-        [Route("Cadena")]
+        [Route("Fichas")]
         public IActionResult Cadena([FromBody] Ficha[] fichas) 
         {
             List<Ficha> fichasJuego = fichas.ToList();
@@ -45,7 +50,7 @@ namespace ApiDomino.Controllers
                     _context.CadenaDominos.AddAsync(cadena);
                     _context.SaveChanges();
                     return Ok("La cadena fue creada correctamente");
-                    
+
                 }
                 else
                 {

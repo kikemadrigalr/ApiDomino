@@ -1,6 +1,6 @@
 ﻿namespace ApiDomino.Models
 {
-    //Clase para definir ficha de dominó
+    //Clase que define ficha de dominó
     public class Ficha
     {
         public int PuntosIzquierda { get; set; }
@@ -14,6 +14,10 @@
             
         }
 
+        //Constructor para crear objetos del tipo ficha resiviendo como parametros
+        //numeros que representan los puntos de cada lado de la ficha
+        //y asignando false a la propiedad jugada, para saber si ya la ficha
+        //fue colocada en la cadena o no
         public Ficha(int pIzquierda, int pDerecha)
         {
             PuntosIzquierda = pIzquierda;
@@ -21,6 +25,8 @@
             Jugada = false;
         }
 
+        //sobreescritura del metodo ToString para un objeto Ficha
+        //para mostrarlo con el formato [N|N]
         public override string ToString()
         {
             return $"[{PuntosIzquierda}|{PuntosDerecha}]";

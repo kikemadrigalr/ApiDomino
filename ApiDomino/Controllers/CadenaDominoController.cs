@@ -10,6 +10,7 @@ namespace ApiDomino.Controllers
     [ApiController]
     public class CadenaDominoController : ControllerBase
     {
+        //Se inyecta el servicio para manejar las cadenas como dependencia en el constructor del controlador
         private readonly ICadenaDominoServices cadenaDominoServices;
 
         public CadenaDominoController(ICadenaDominoServices services)
@@ -17,6 +18,7 @@ namespace ApiDomino.Controllers
             cadenaDominoServices = services;
         }
 
+        //Endopoint para listar todas las cadenas válidas que se encuentran en la Base de datos
         [HttpGet]
         [Route("CadenaValida")]
         public IActionResult Get() 
@@ -32,6 +34,7 @@ namespace ApiDomino.Controllers
             
         }
 
+        //Endopoint para listar una unica cadena valida segun su id y que se encuentra en la base de datos
         [HttpGet]
         [Route("CadenaValida/{id}")]
         public IActionResult GetId(int id)
