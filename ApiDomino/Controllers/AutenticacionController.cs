@@ -61,7 +61,7 @@ namespace ApiDomino.Controllers
             }
             else
             {
-                return BadRequest(StatusCodes.Status401Unauthorized);
+                return BadRequest("Usuario No Autorizado");
             }
         }
     }
