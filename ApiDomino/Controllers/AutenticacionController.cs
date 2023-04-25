@@ -8,9 +8,11 @@ using ApiDomino.Data;
 using System.Text;
 using ApiDomino.Recursos;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Cors;
 
 namespace ApiDomino.Controllers
 {
+    [EnableCors("ReglasCors")]
     [Route("api/[controller]")]
     [ApiController]
     public class AutenticacionController : ControllerBase

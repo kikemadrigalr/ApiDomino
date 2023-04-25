@@ -4,9 +4,11 @@ using ApiDomino.Models;
 using ApiDomino.Data;
 using ApiDomino.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace ApiDomino.Controllers
 {
+    [EnableCors("ReglasCors")]
     [Route("/api/[controller]")]
     [ApiController]
     [Authorize]

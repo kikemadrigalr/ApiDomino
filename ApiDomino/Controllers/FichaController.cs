@@ -5,12 +5,14 @@ using ApiDomino.Controllers;
 using Microsoft.EntityFrameworkCore;
 using ApiDomino.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace ApiDomino.Controllers
 {
     //Controlador para manejar las peticiones de los tipos ficha
     //solo tiene un unico endpoint ya que solo se hace insercion de fichas para crear las cadenas de dominoes validas.
     //la inserción a la BD se realiza luego de crear una cadena valida.
+    [EnableCors("ReglasCors")]
     [Route("/api/[controller]")]
     [Authorize]
     public class FichaController : ControllerBase
@@ -25,7 +27,7 @@ namespace ApiDomino.Controllers
 
         //Enpoint para recibir el conjunto de fichas de dominos en formato Json
         [HttpPost]
-        [Route("Fichas")]
+        [Route("FichasJuego")]
         public IActionResult Cadena([FromBody] Ficha[] fichas) 
         {
             List<Ficha> fichasJuego = fichas.ToList();

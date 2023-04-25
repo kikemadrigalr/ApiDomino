@@ -45,6 +45,17 @@ builder.Services.AddSqlServer<DominoContext>(builder.Configuration.GetConnection
 //dependencias del Servicio CadenasDomino
 builder.Services.AddScoped<ICadenaDominoServices, CadenaDominoServices>();
 
+//configuracion de cors para que el API sea accedido desde cualquier dominio
+var misReglasCors = "ReglasCors";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: misReglasCors, builder =>
+    {
+        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -54,6 +65,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(misReglasCors);
 app.UseAuthentication();
 app.UseAuthorization();
 
