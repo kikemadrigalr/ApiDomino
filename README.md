@@ -50,5 +50,15 @@ implementar códigos de respuesta HTTP.
 
 ### Se recomienda la aplicacion Postman para probar los distintos endpoints
 
+## Paso a Paso
+
+1. En una Ventana de request en postman escriba la url http://cmapidomino.somee.com/api/Autenticacion/Validar, y en formato json envia los siguientes datos
+{
+  "email": "usuario@inalambria.com",
+  "password": "1234"
+}
+un dato errado regresa mensaje de Usuario no Autorizado, si se ejecuta correctamente te devuelve el token 
+
   
-  
+  ![Paso 1](https://www.dropbox.com/s/ahcep6zreqx80s9/paso1.png?dl=0)
+
