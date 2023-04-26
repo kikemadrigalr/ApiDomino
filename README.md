@@ -61,4 +61,6 @@ un dato errado regresa mensaje de Usuario no Autorizado, si se ejecuta correctam
 
   
   ![Paso 1](https://www.dropbox.com/s/ahcep6zreqx80s9/paso1.png?dl=0)
+  
+  2. Una vez el Api te devuelva el token, lo copias y pegas en la pestaña Authorization seleccionando el tipo Bearer Token. Una vez hagas esto puedes hacer una petición al APi 
 
