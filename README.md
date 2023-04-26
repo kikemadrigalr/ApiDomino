@@ -71,7 +71,7 @@ un dato errado regresa mensaje de Usuario no Autorizado, si se ejecuta correctam
  }
  el api devuelve los mensajes correspondientes si se creó o no una cadena valida
  
- 4. Peticiones Get para las cadenas al endpoint cmapidomino.somee.com/api/CadenaDomino/CadenaValida lista las cadenas validas creadas
- 5. Peticiones Get para las cadenas al endpoint cmapidomino.somee.com/api/CadenaDomino/CadenaValida/{id} lista una cadena valda especifica
- 6. Peticiones Get para las cadenas al endpoint cmapidomino.somee.com/api/CadenaDomino/CadenaValida/{id} elimina una cadena valida especifica
+ 4. Peticiones Get para las cadenas al endpoint http://cmapidomino.somee.com/api/CadenaDomino/CadenaValida lista las cadenas validas creadas
+ 5. Peticiones Get para las cadenas al endpoint http://cmapidomino.somee.com/api/CadenaDomino/CadenaValida/{id} lista una cadena valda especifica
+ 6. Peticiones Get para las cadenas al endpoint http://cmapidomino.somee.com/api/CadenaDomino/CadenaValida/{id} elimina una cadena valida especifica
 
