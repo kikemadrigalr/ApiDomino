@@ -62,5 +62,16 @@ un dato errado regresa mensaje de Usuario no Autorizado, si se ejecuta correctam
   
   ![Paso 1](https://www.dropbox.com/s/ahcep6zreqx80s9/paso1.png?dl=0)
   
-  2. Una vez el Api te devuelva el token, lo copias y pegas en la pestaña Authorization seleccionando el tipo Bearer Token. Una vez hagas esto puedes hacer una petición al APi 
+2. Una vez el Api te devuelva el token, lo copias y pegas en la pestaña Authorization seleccionando el tipo Bearer Token. Una vez hagas esto puedes hacer una petición al APi
+
+3. Peticion Post para enviar conjunto de fichas al endpoint http://cmapidomino.somee.com/api/Ficha/FichasJuego. El conjunto debe ser entre 2 y 6 fichas con el siguiente formato  
+{
+    "puntosIzquierda": 0,
+    "puntosDerecha": 0
+ }
+ el api devuelve los mensajes correspondientes si se creó o no una cadena valida
+ 
+ 4. Peticiones Get para las cadenas al endpoint cmapidomino.somee.com/api/CadenaDomino/CadenaValida lista las cadenas validas creadas
+ 5. Peticiones Get para las cadenas al endpoint cmapidomino.somee.com/api/CadenaDomino/CadenaValida/{id} lista una cadena valda especifica
+ 6. Peticiones Get para las cadenas al endpoint cmapidomino.somee.com/api/CadenaDomino/CadenaValida/{id} elimina una cadena valida especifica
 
