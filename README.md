@@ -33,7 +33,7 @@ implementar códigos de respuesta HTTP.
 ## Uso
 
 1. Api de Autenticación: 
-/api/Autenticacion/Validar La API cuenta con autenticación por medio de Json Web Token, por lo cual debes ser autorizado para el consumo de la misma. Como se trata de una API prueba puedes utilizar las siguientes credenciales para acceder: { "email" : "usuario@inalambria.com", "password" :"1234" /  "email" : "usuario@email.com", "password" : "123"). EL Api regresa en formato json un token el cual podras usar para ser autorizado. 
+/api/Autenticacion/Validar La API cuenta con autenticación por medio de Json Web Token, por lo cual debes ser autorizado para el consumo de la misma. Como se trata de una API prueba puedes utilizar las siguientes credenciales para acceder: { "email" : "usuario@inalambria.com", "password" :"1234" } ó { "email" : "usuario@email.com", "password" : "123" }. EL Api regresa en formato json un token el cual podras usar para ser autorizado. 
 
 2. Api CadenaDomino para consultar las cadenas Validas que se han creado: 
   1. (Get) /api/CadenaDomino/CadenaValida Lista todas las cadenas validas que se han creado.
