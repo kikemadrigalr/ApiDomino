@@ -28,3 +28,27 @@ los criterios definidos con el conjunto de fichas de dominó enviado.
 En esta API debe implementar un método de autenticación, el que sea de su agrado; así mismo debe 
 implementar códigos de respuesta HTTP.
 
+## Puedes consultarla en: [Api Domino](http://cmapidomino.somee.com/swagger/index.html)
+
+## Uso
+
+1. Api de Autenticación: 
+/api/Autenticacion/Validar La API cuenta con autenticación por medio de Json Web Token, por lo cual debes ser autorizado para el consumo de la misma. Como se trata de una API prueba puedes utilizar las siguientes credenciales para acceder: { "email" : "usuario@inalambria.com", "password" :"1234" /  "email" : "usuario@email.com", "password" : "123"). EL Api regresa en formato json un token el cual podras usar para ser autorizado. 
+
+2. Api CadenaDomino para consultar las cadenas Validas que se han creado: 
+  1. (Get) /api/CadenaDomino/CadenaValida Lista todas las cadenas validas que se han creado.
+  2. (Get) /api/CadenaDomino/CadenaValida/{id} Lista una cadena valida segun un Id especificado en la ruta 
+  3. (Delete) /api/CadenaDomino/CadenaValida/{id} Elimina una cadena valida existente utilizando el id que recibe en la ruta
+  
+3. Api Ficha 
+/api/Ficha/FichasJuego Endopoint para ingresar el conjunto de fichas con as que se buscar armar una cadena valida. Tiene el siguiente formato
+{
+  puntosIzquierda	integer($int32)
+  puntosDerecha	integer($int32)
+  jugada	boolean
+}
+
+### Se recomienda la aplicacion Postman para probar los distintos endpoints
+
+  
+  
