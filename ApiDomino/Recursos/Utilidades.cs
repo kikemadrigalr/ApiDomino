@@ -19,38 +19,45 @@ namespace ApiDomino.Recursos
             {
                 for (int i = 0; i < fichas.Count; i++)
                 {
-                    var pieza = fichas[i];
+                    //se ordena la lista de fichas segun el valor del lado izquierdo
+                    //si esta ficha no se ha jugado se toma como la proxima ficha a jugar
+                    var pieza = fichas.OrderByDescending(f => f.PuntosIzquierda).Where(f => f.Jugada == false).FirstOrDefault();
+                    //var pieza = fichas[i];
 
-                    //Intentar ingresar al final de la lista
-                    //si el lado derecho de la ficha ya jugada coincide con alguno de los lados de la proxima ficha
-                    if (cadena.Count == 0 || (cadena.Last().PuntosDerecha == pieza.PuntosIzquierda && pieza.Jugada == false))
+                    if(pieza != null)
                     {
-                        pieza.Jugada = true;
-                        cadena.Add(pieza);
-                        contadorFichas++;
-                    }
-                    else if (cadena.Count == 0 || (cadena.Last().PuntosDerecha == pieza.PuntosDerecha && pieza.Jugada == false))
-                    {
-                        CambiarPosicion(pieza);
-                        pieza.Jugada = true;
-                        cadena.Add(pieza);
-                        contadorFichas++;
-                    }
 
-                    //Intentar Ingresar al inicio de la Lista
-                    //Si el lado izquierdo de la ficha ya jugada coincide con alguno de los lados de la proxima ficha
-                    if (cadena.Count == 0 || (cadena.First().PuntosIzquierda == pieza.PuntosDerecha && pieza.Jugada == false))
-                    {
-                        pieza.Jugada = true;
-                        cadena.Insert(0, pieza);
-                        contadorFichas++;
-                    }
-                    else if (cadena.Count == 0 || (cadena.First().PuntosIzquierda == pieza.PuntosIzquierda && pieza.Jugada == false))
-                    {
-                        CambiarPosicion(pieza);
-                        pieza.Jugada = true;
-                        cadena.Insert(0, pieza);
-                        contadorFichas++;
+                        //Intentar ingresar al final de la lista
+                        //si el lado derecho de la ficha ya jugada coincide con alguno de los lados de la proxima ficha
+                        if (cadena.Count == 0 || (cadena.Last().PuntosDerecha == pieza.PuntosIzquierda && pieza.Jugada == false))
+                        {
+                            pieza.Jugada = true;
+                            cadena.Add(pieza);
+                            contadorFichas++;
+                        }
+                        else if (cadena.Count == 0 || (cadena.Last().PuntosDerecha == pieza.PuntosDerecha && pieza.Jugada == false))
+                        {
+                            CambiarPosicion(pieza);
+                            pieza.Jugada = true;
+                            cadena.Add(pieza);
+                            contadorFichas++;
+                        }
+
+                        //Intentar Ingresar al inicio de la Lista
+                        //Si el lado izquierdo de la ficha ya jugada coincide con alguno de los lados de la proxima ficha
+                        if (cadena.Count == 0 || (cadena.First().PuntosIzquierda == pieza.PuntosDerecha && pieza.Jugada == false))
+                        {
+                            pieza.Jugada = true;
+                            cadena.Insert(0, pieza);
+                            contadorFichas++;
+                        }
+                        else if (cadena.Count == 0 || (cadena.First().PuntosIzquierda == pieza.PuntosIzquierda && pieza.Jugada == false))
+                        {
+                            CambiarPosicion(pieza);
+                            pieza.Jugada = true;
+                            cadena.Insert(0, pieza);
+                            contadorFichas++;
+                        }
                     }
                 }
             }

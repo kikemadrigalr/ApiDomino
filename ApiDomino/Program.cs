@@ -42,6 +42,8 @@ builder.Services.AddSwaggerGen();
 //Configuracion de Entity Framework para la conexion con SQL Server
 builder.Services.AddSqlServer<DominoContext>(builder.Configuration.GetConnectionString("CadenaSql"));
 
+//builder.Services.AddSqlServer<DominoContext>(builder.Configuration.GetConnectionString("CadenaSql"), opt => opt.EnableRetryOnFailure());
+
 //dependencias del Servicio CadenasDomino
 builder.Services.AddScoped<ICadenaDominoServices, CadenaDominoServices>();
 
@@ -59,11 +61,16 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+//Develop
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//produccion
+//app.UseSwagger();
+//app.UseSwaggerUI();
 
 app.UseCors(misReglasCors);
 app.UseAuthentication();

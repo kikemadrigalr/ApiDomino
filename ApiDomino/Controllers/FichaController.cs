@@ -14,7 +14,7 @@ namespace ApiDomino.Controllers
     //la inserción a la BD se realiza luego de crear una cadena valida.
     [EnableCors("ReglasCors")]
     [Route("/api/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class FichaController : ControllerBase
     {
         //se inyecta el contexto de la base de datos como dependencia en el contructor del controlador

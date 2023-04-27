@@ -11,7 +11,7 @@ namespace ApiDomino.Controllers
     [EnableCors("ReglasCors")]
     [Route("/api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class CadenaDominoController : ControllerBase
     {
         //Se inyecta el servicio para manejar las cadenas como dependencia en el constructor del controlador
